@@ -1,18 +1,20 @@
-# AI_MEDICAL_ASSISTANT
+# 🏥 AI Medical Assistant
 
-An End-to-End AI Medical Assistant built using Machine Learning, NLP, RAG (Retrieval-Augmented Generation), Gemini LLM, FAISS Vector Database, and Streamlit.
+An End-to-End AI Medical Assistant built using Python, Machine Learning, NLP, RAG (Retrieval-Augmented Generation), Gemini LLM, FAISS Vector Database, and Streamlit.
+
+---
 
 ## 📌 Project Overview
 
-This project predicts diseases based on symptoms and answers medical questions using a RAG-powered chatbot.
+This project predicts diseases based on symptoms and answers medical questions using a Retrieval-Augmented Generation (RAG) pipeline.
 
 The system combines:
 
-- Machine Learning for Disease Prediction
-- Medical PDF Knowledge Base
-- Embeddings and Vector Search
+- Machine Learning for disease prediction
+- PDF-based medical knowledge base
+- Embeddings and Vector Database
 - Gemini Large Language Model
-- Streamlit Web Application
+- Streamlit User Interface
 
 ---
 
@@ -21,12 +23,12 @@ The system combines:
 ### Disease Prediction
 - Predict diseases from symptoms
 - Random Forest Machine Learning Model
-- Fast and simple prediction system
+- Fast and lightweight
 
 ### Medical Chatbot
 - Ask medical questions
-- Uses Retrieval-Augmented Generation (RAG)
-- Searches medical PDFs for context
+- Uses RAG architecture
+- Searches medical PDFs
 - Generates answers using Gemini
 
 ### Knowledge Base
@@ -36,47 +38,56 @@ The system combines:
 
 ### User Interface
 - Streamlit Dashboard
-- Real-time predictions
-- Interactive chatbot
+- Easy to use
+- Real-time predictions and chat
 
 ---
 
-## 📂 Project Structure
+## 🏗 Project Architecture
 
-```text
 AI_MEDICAL_ASSISTANT/
 │
 ├── app.py
 ├── requirements.txt
+├── .env
 │
 ├── data/
-│   ├── disease_dataset.csv
-│   ├── medical_book.pdf
-│   └── disease_guide.pdf
+│ ├── disease_dataset.csv
+│ ├── medical_book.pdf
+│ └── disease_guide.pdf
 │
 ├── models/
-│   ├── disease_model.pkl
-│   └── encoder.pkl
+│ ├── disease_model.pkl
+│ └── encoder.pkl
 │
 ├── vectorstore/
 │
-└── src/
-    ├── train_model.py
-    ├── predictor.py
-    ├── rag.py
-    └── chatbot.py
+├── src/
+│ ├── train_model.py
+│ ├── predictor.py
+│ ├── rag.py
+│ └── chatbot.py
+│
+└── README.md
 
-**🛠 Technologies Used**
-Python
-Pandas
-NumPy
-Scikit-Learn
-LangChain
-Google Gemini
-FAISS
-PyPDF
-Streamlit
-RAG
+
+---
+
+## 🛠 Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Scikit-Learn
+- LangChain
+- Google Gemini
+- FAISS
+- Streamlit
+- PyPDF
+- RAG
+
+---
+
 ⚙ Installation
 1. Clone Repository
 git clone <your-repository-url>
@@ -231,7 +242,6 @@ It is not a substitute for professional medical advice, diagnosis, or treatment.
 Always consult qualified healthcare professionals for medical decisions.
 
 👨‍💻 Author
-
 Bhagyashri Patil
 
 Data Science | Machine Learning | Generative AI Engineer
@@ -245,3 +255,4 @@ Fork the project
 Share with others
 
 Happy Coding! 🚀
+This README is suitable for GitHub portfolio projects and clearly explains setup, architecture, usage, and the RAG workflow.
