@@ -65,7 +65,8 @@ AI_MEDICAL_ASSISTANT/
     ├── predictor.py
     ├── rag.py
     └── chatbot.py
-🛠 Technologies Used
+
+##🛠 Technologies Used##
 Python
 Pandas
 NumPy
