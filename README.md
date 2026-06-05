@@ -1,258 +1,164 @@
-# 🏥 AI Medical Assistant
+# 🩺 AI Medical Assistant
 
-An End-to-End AI Medical Assistant built using Python, Machine Learning, NLP, RAG (Retrieval-Augmented Generation), Gemini LLM, FAISS Vector Database, and Streamlit.
-
----
-
-## 📌 Project Overview
-
-This project predicts diseases based on symptoms and answers medical questions using a Retrieval-Augmented Generation (RAG) pipeline.
-
-The system combines:
-
-- Machine Learning for disease prediction
-- PDF-based medical knowledge base
-- Embeddings and Vector Database
-- Gemini Large Language Model
-- Streamlit User Interface
-
----
+AI Medical Assistant is an intelligent healthcare application that combines Machine Learning, NLP, Retrieval-Augmented Generation (RAG), Vector Databases, and Large Language Models (LLMs) to predict diseases from symptoms and provide accurate medical information through an AI-powered chatbot. The system uses medical datasets for disease prediction and medical PDFs as a knowledge base for question answering.
 
 ## 🚀 Features
+- Disease prediction based on symptoms
+- AI-powered medical chatbot
+- Retrieval-Augmented Generation (RAG)
+- Medical PDF knowledge base
+- FAISS vector database for semantic search
+- Gemini LLM integration
+- Streamlit web interface
+- Interactive and user-friendly dashboard
 
-### Disease Prediction
-- Predict diseases from symptoms
-- Random Forest Machine Learning Model
-- Fast and lightweight
-
-### Medical Chatbot
-- Ask medical questions
-- Uses RAG architecture
-- Searches medical PDFs
-- Generates answers using Gemini
-
-### Knowledge Base
-- Medical Books
-- Disease Guides
-- Custom Medical PDFs
-
-### User Interface
-- Streamlit Dashboard
-- Easy to use
-- Real-time predictions and chat
-
----
-
-## 🏗 Project Architecture
+## 🏗️ Project Structure
 
 AI_MEDICAL_ASSISTANT/
 │
 ├── app.py
 ├── requirements.txt
-├── .env
 │
 ├── data/
-│ ├── disease_dataset.csv
-│ ├── medical_book.pdf
-│ └── disease_guide.pdf
+│   ├── disease_dataset.csv
+│   ├── medical_book.pdf
+│   └── disease_guide.pdf
 │
 ├── models/
-│ ├── disease_model.pkl
-│ └── encoder.pkl
+│   └── disease_model.pkl
 │
 ├── vectorstore/
+│   └── faiss_index
 │
-├── src/
-│ ├── train_model.py
-│ ├── predictor.py
-│ ├── rag.py
-│ └── chatbot.py
-│
-└── README.md
+└── src/
+    ├── train_model.py
+    ├── predictor.py
+    ├── create_vectorstore.py
+    └── rag_chatbot.py
 
-
----
-
-## 🛠 Technologies Used
-
+## 🛠️ Technologies Used
 - Python
 - Pandas
 - NumPy
 - Scikit-Learn
+- Streamlit
 - LangChain
 - Google Gemini
 - FAISS
-- Streamlit
 - PyPDF
-- RAG
+- Sentence Transformers
+- RAG Architecture
 
----
+## ⚙️ Installation
 
-⚙ Installation
-1. Clone Repository
-git clone <your-repository-url>
+### Clone Repository
+```bash
+git clone https://github.com/yourusername/AI_MEDICAL_ASSISTANT.git
 cd AI_MEDICAL_ASSISTANT
-2. Create Virtual Environment
-Windows
+```
+
+### Create Virtual Environment
+```bash
 python -m venv .venv
+```
+
+### Activate Environment
+
+Windows:
+```bash
 .venv\Scripts\activate
-Linux / Mac
-python3 -m venv .venv
+```
+
+Linux/Mac:
+```bash
 source .venv/bin/activate
-3. Install Dependencies
+```
+
+### Install Dependencies
+```bash
 pip install -r requirements.txt
-📦 requirements.txt
-streamlit
-pandas
-numpy
-scikit-learn
-joblib
-langchain
-langchain-community
-langchain-google-genai
-langchain-text-splitters
-faiss-cpu
-pypdf
-python-dotenv
-🔑 Gemini API Setup
+```
 
-Create a .env file in the project root.
+## 🔑 Configure API Key
 
-GOOGLE_API_KEY=YOUR_GEMINI_API_KEY
+Create a `.env` file in the root directory:
 
-Get an API key from:
+```env
+GOOGLE_API_KEY=your_gemini_api_key
+```
 
-Google AI Studio
+## 📊 Train Disease Prediction Model
 
-📊 Dataset Format
-data/disease_dataset.csv
-fever,cough,headache,fatigue,disease
-1,1,1,1,Flu
-1,1,0,1,Cold
-0,0,1,1,Migraine
-1,0,1,0,Dengue
-0,1,0,1,Asthma
-🧠 Train Machine Learning Model
-
-Run:
-
+```bash
 python src/train_model.py
+```
 
-Output:
+The trained model will be saved inside the `models` folder.
 
-Model Saved
+## 📚 Create Vector Database
 
-Generated files:
+```bash
+python src/create_vectorstore.py
+```
 
-models/
-├── disease_model.pkl
-└── encoder.pkl
-📚 Create Vector Database
+This will process medical PDFs and create a FAISS vector database.
 
-Place PDFs inside:
+## ▶️ Run Application
 
-data/
-├── medical_book.pdf
-└── disease_guide.pdf
-
-Run:
-
-python src/rag.py
-
-Output:
-
-Vector DB Created Successfully
-
-Generated folder:
-
-vectorstore/
-🤖 Run Application
-
-Start Streamlit:
-
+```bash
 streamlit run app.py
+```
 
-Open:
+Application URL:
 
+```text
 http://localhost:8501
-🔄 Application Workflow
-Disease Prediction
-Symptoms
-    ↓
-Feature Selection
-    ↓
-Random Forest Model
-    ↓
-Disease Prediction
-Medical Chatbot (RAG)
-Medical PDFs
-      ↓
-Document Loader
-      ↓
-Text Splitter
-      ↓
-Embeddings
-      ↓
-FAISS Vector Store
-      ↓
-Similarity Search
-      ↓
-Relevant Context
-      ↓
-Gemini LLM
-      ↓
-Medical Answer
-🖥 Example Usage
-Disease Prediction
+```
 
-Input:
+## 🔄 Workflow
 
-Fever = 1
-Cough = 1
-Headache = 1
-Fatigue = 1
+User Symptoms → Disease Prediction Model → Predicted Disease → Vector Search (FAISS) → Relevant Medical Context → Gemini LLM → AI Response
 
-Output:
+## 💬 Example Queries
 
-Predicted Disease: Flu
-Medical Chatbot
+- What are the symptoms of diabetes?
+- What causes asthma?
+- How can hypertension be controlled?
+- Explain dengue fever.
+- What precautions should be taken for COVID-19?
 
-Input:
+## 📦 Requirements
 
-What are the symptoms of dengue?
+- streamlit
+- pandas
+- numpy
+- scikit-learn
+- joblib
+- langchain
+- langchain-community
+- langchain-google-genai
+- faiss-cpu
+- pypdf
+- sentence-transformers
+- python-dotenv
+- google-generativeai
 
-Output:
+## ⚠️ Disclaimer
 
-AI-generated response based on medical documents
-📈 Future Enhancements
-Deep Learning Disease Prediction
-Medical Image Analysis
-Voice Assistant
-Multilingual Support
-Patient History Tracking
-Doctor Recommendation System
-Cloud Deployment
-Authentication System
-⚠ Disclaimer
+This project is developed for educational and research purposes only. It should not be considered a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional for medical concerns.
 
-This project is intended for educational and research purposes only.
+## 👩‍💻 Author
 
-It is not a substitute for professional medical advice, diagnosis, or treatment.
+**Bhagyashri Patil**
 
-Always consult qualified healthcare professionals for medical decisions.
+AI | Data Science | Machine Learning | Deep Learning | Generative AI
 
-👨‍💻 Author
-Bhagyashri Patil
+## ⭐ Future Enhancements
+- Voice-enabled medical assistant
+- Medical image analysis
+- Multi-language support
+- Patient history tracking
+- Cloud deployment (AWS/Azure/GCP)
+- Drug recommendation system
 
-Data Science | Machine Learning | Generative AI Engineer
-
-⭐ Support
-
-If you found this project useful:
-
-Star the repository
-Fork the project
-Share with others
-
-Happy Coding! 🚀
-This README is suitable for GitHub portfolio projects and clearly explains setup, architecture, usage, and the RAG workflow.
+If you find this project useful, consider giving it a ⭐ on GitHub.
