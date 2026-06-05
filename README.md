@@ -66,7 +66,7 @@ AI_MEDICAL_ASSISTANT/
     ├── rag.py
     └── chatbot.py
 
-##🛠 Technologies Used##
+**🛠 Technologies Used**
 Python
 Pandas
 NumPy
